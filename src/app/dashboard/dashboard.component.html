@@ -53,12 +53,47 @@
                     </ul>
                   </div>
              </mat-sidenav>
-          <mat-sidenav-content>
-             
+          <mat-sidenav-content class="content col-10">
+            <div class="row">
+                <div class="content-row col-7">
+                    <app-volet>
+                      <div header>
+                         Candidats
+                      </div>
+                      <div body>
+                        1
+                      </div>
+                    </app-volet>
     
-                Dashboard works !
-            
-      
+                    <app-volet>
+                        <div header>
+                            À la une
+                        </div>
+                        <div body>
+                         2
+                        </div>
+                    </app-volet>
+                </div>
+                <div class="content-row col-5">
+                    <app-volet>
+                        <div header>
+                            Candidats sur l'année 2018
+                        </div>
+                        <div body>
+                          3
+                        </div>
+                    </app-volet>
+    
+                    <app-volet>
+                        <div header>
+                            Ajouter une demande
+                        </div>
+                        <div body>
+                          4
+                        </div>
+                    </app-volet>
+                </div>
+            </div>
           </mat-sidenav-content>
         </mat-sidenav-container>
   </div>

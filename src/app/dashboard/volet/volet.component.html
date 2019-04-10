@@ -1,0 +1,12 @@
+<mat-card>
+
+    <div (click)="toggle()" class="header">
+        <mat-icon *ngIf = "!show"> chevron_right </mat-icon>
+        <mat-icon *ngIf = "show"> expand_more </mat-icon>
+        <ng-content select="[header]" ></ng-content>
+        
+    </div>
+    <div [@slideInOut]='stateName' *ngIf="show" class="body">
+      <ng-content select="[body]"></ng-content>
+    </div>
+</mat-card>
