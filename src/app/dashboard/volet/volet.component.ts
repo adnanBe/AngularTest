@@ -19,14 +19,14 @@ export class VoletComponent implements OnInit {
   show: boolean;
 
   constructor() {
-    this.show = false;
+    this.show = true;
   }
 
   toggle() {
     this.show = !this.show;
-    console.log(this.show);
   }
 
+  // fonction animation
   get stateName() {
     return this.show ? 'enter' : 'leave';
   }

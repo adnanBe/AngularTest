@@ -32,13 +32,15 @@ import {
   MatSelectModule,
   MatSidenavModule,
   MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule,
-  MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule
+  MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule, MatFormFieldModule
 } from '@angular/material';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { VoletComponent } from './dashboard/volet/volet.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ChartsModule } from 'ng2-charts';
 
 const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -56,10 +58,13 @@ const appRoutes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule
+    ChartsModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true },
+      { enableTracing: true }
     ),
+    FormsModule,
+    ReactiveFormsModule,
     NoopAnimationsModule,
     CdkTableModule,
     CdkTreeModule,
@@ -72,6 +77,7 @@ const appRoutes: Routes = [
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatFormFieldModule,
     MatStepperModule,
     MatDatepickerModule,
     MatDialogModule,

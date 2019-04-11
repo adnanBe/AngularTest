@@ -23,8 +23,8 @@
           </span>
         </mat-toolbar>
       
-        <mat-sidenav-container class="example-container">
-            <mat-sidenav opened mode="side" class="col-2">
+        <mat-sidenav-container >
+            <mat-sidenav style="height:100%;" opened mode="side" class="col-2">
                 <div class="header-menu">
                     <div class="cercle-menu">
                       JD
@@ -43,6 +43,8 @@
                     <button class="btn-net">t</button>
                     <button class="btn-net">B</button>
                   </div>
+
+                  
             
                   <div class="menu">
                     <ul>
@@ -53,7 +55,7 @@
                     </ul>
                   </div>
              </mat-sidenav>
-          <mat-sidenav-content class="content col-10">
+          <mat-sidenav-content style="height:100vh;" class="content col-10">
             <div class="row">
                 <div class="content-row col-7">
                     <app-volet>
@@ -61,7 +63,18 @@
                          Candidats
                       </div>
                       <div body>
-                        1
+                        <h6 style="font-weight:bold"> Répartition par spécialité</h6>
+                        <span> Répartition par des spécialité des candidat sur les 4 dernieres années</span>
+                        <div style="display: block">
+                          <canvas baseChart
+                            [datasets]="barChartData"
+                            [labels]="barChartLabels"
+                            [options]="barChartOptions"
+                            [plugins]="barChartPlugins"
+                            [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                          </canvas>
+                        </div>
                       </div>
                     </app-volet>
     
@@ -70,7 +83,13 @@
                             À la une
                         </div>
                         <div body>
-                         2
+                          <h4>Oracle Autonomous Database tient-il ses promesses ?</h4>
+                          <p> 1er octobre 2017. Larry Ellison introduit la session inaugurale d'Oracle Openworld. Comme à son habitude, le cofondateur d'Oracle fait le show. Il annonce le lancement d'une base de données capable de se gérer par "elle-même" grâce à ses mécanismes d'apprentissage automatique (voir la vidéo). Basée sur la version 18c de la base de données maison et sur la plateforme intégrée Exadata dans le cloud, Oracle Autonomous Database assure automatiquement les tâches de provisioning, de sauvegarde, d'application de correctifs, de mises à jour et autres opérations de maintenance...</p>
+                         <div style="text-align:end;">
+                            <button mat-button class="btn-org">
+                                  Lire la suite
+                                </button>
+                          </div>
                         </div>
                     </app-volet>
                 </div>
@@ -80,16 +99,74 @@
                             Candidats sur l'année 2018
                         </div>
                         <div body>
-                          3
+                             <table class="table" style="font-size:12px">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Spécialité</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Catégorie</th>
+                                    <th scope="col">Technologie</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of data[0]">
+                                    <td>{{item.speciality}}</td>
+                                    <td>{{item.number}}</td>
+                                    <td>{{item.category}}</td>
+                                    <td>{{item.technology}}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
                         </div>
                     </app-volet>
     
                     <app-volet>
                         <div header>
-                            Ajouter une demande
+                            Ajouter une données
                         </div>
                         <div body>
-                          4
+                            <div >
+                              <div class="alert alert-warning" role="alert" *ngIf="isValide==false">
+                                Tous les champs sont obligatoire !
+                              </div>
+                              <form class="form-container">
+                                <mat-form-field>
+                                  <mat-select placeholder="Spécialité" name="speciality" [(ngModel)]="dataForm.speciality">
+                                    <mat-option value ="Angular">Angular</mat-option>
+                                    <mat-option value ="React">React</mat-option>
+                                    <mat-option value ="NodeJs">NodeJs</mat-option>
+                                    <mat-option value ="Symphony 4">Symphony 4</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                  <mat-select name="technology" [(ngModel)]="dataForm.technology" placeholder="Technologie">
+                                    <mat-option  value="Javascript">Javascript</mat-option>
+                                    <mat-option  value="PHP">PHP</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field>
+                                  <mat-select  name="category" [(ngModel)]="dataForm.category" placeholder="Catégorie">
+                                    <mat-option  value="Front">Front</mat-option>
+                                    <mat-option  value="Back">Back</mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+
+
+                                <mat-form-field>
+                                  <input name="number" [(ngModel)]="dataForm.number" matInput placeholder="Nombre">
+                                </mat-form-field>
+                              
+                              </form>
+                                  
+                              </div>
+                              <div style="text-align:end;">
+                                <button mat-button class="btn-org" (click)="addData(dataForm)">
+                                      Ajouter
+                                    </button>
+                              </div>
+                              
                         </div>
                     </app-volet>
                 </div>
@@ -98,3 +175,33 @@
         </mat-sidenav-container>
   </div>
 
+<!--
+  <table mat-table [dataSource]="data[0]" class="mat-elevation-z8">
+
+                                <ng-container matColumnDef="position">
+                                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                                </ng-container>
+                              
+                          
+                                <ng-container matColumnDef="name">
+                                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                </ng-container>
+                              
+                               
+                                <ng-container matColumnDef="weight">
+                                  <th mat-header-cell *matHeaderCellDef> Weight </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                                </ng-container>
+                              
+                               
+                                <ng-container matColumnDef="symbol">
+                                  <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                                  <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                                </ng-container>
+                              
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                              </table>
+-->

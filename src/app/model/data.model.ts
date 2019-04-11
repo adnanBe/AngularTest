@@ -1,3 +1,6 @@
+/*
+* Jeu de données
+*/
 export const DATA =
 [
     [
@@ -5,102 +8,90 @@ export const DATA =
             speciality: 'Angular',
             number: 25,
             category: 'Front',
-            technology: 'JavaScript'
+            technology: 'Javascript'
         },
         {
             speciality: 'React',
             number: 30,
             category: 'Front',
-            technology: 'JavaScript'
+            technology: 'Javascript'
+        }
+    ],
+    [
+        {
+            speciality: 'Angular',
+            number: 23,
+            category: 'Front',
+            technology: 'Javascript'
+        },
+        {
+            speciality: 'React',
+            number: 27,
+            category: 'Front',
+            technology: 'Javascript'
         },
         {
             speciality: 'Node JS',
-            number: 28,
-            category: 'back',
-            technology: 'JavaScript'
+            number: 25,
+            category: 'Back',
+            technology: 'Javascript'
         },
         {
             speciality: 'Symphony 4',
-            number: 32,
-            category: 'back',
+            number: 27,
+            category: 'Back',
             technology: 'PHP'
         }
     ],
     [
         {
             speciality: 'Angular',
-            number: 25,
+            number: 22,
             category: 'Front',
-            technology: 'JavaScript'
+            technology: 'Javascript'
         },
         {
             speciality: 'React',
-            number: 30,
+            number: 26,
             category: 'Front',
-            technology: 'JavaScript'
+            technology: 'Javascript'
         },
         {
             speciality: 'Node JS',
-            number: 28,
-            category: 'back',
-            technology: 'JavaScript'
+            number: 24,
+            category: 'Back',
+            technology: 'Javascript'
         },
         {
             speciality: 'Symphony 4',
-            number: 32,
-            category: 'back',
+            number: 26,
+            category: 'Back',
             technology: 'PHP'
         }
     ],
     [
         {
             speciality: 'Angular',
-            number: 25,
+            number: 19,
             category: 'Front',
-            technology: 'JavaScript'
+            technology: 'Javascript'
         },
         {
             speciality: 'React',
-            number: 30,
+            number: 24,
             category: 'Front',
-            technology: 'JavaScript'
+            technology: 'Javascript'
         },
         {
             speciality: 'Node JS',
-            number: 28,
-            category: 'back',
-            technology: 'JavaScript'
+            number: 22,
+            category: 'Back',
+            technology: 'Javascript'
         },
         {
             speciality: 'Symphony 4',
-            number: 32,
-            category: 'back',
-            technology: 'PHP'
-        }
-    ],
-    [
-        {
-            speciality: 'Angular',
-            number: 25,
-            category: 'Front',
-            technology: 'JavaScript'
-        },
-        {
-            speciality: 'React',
-            number: 30,
-            category: 'Front',
-            technology: 'JavaScript'
-        },
-        {
-            speciality: 'Node JS',
-            number: 28,
-            category: 'back',
-            technology: 'JavaScript'
-        },
-        {
-            speciality: 'Symphony 4',
-            number: 32,
-            category: 'back',
+            number: 26,
+            category: 'Back',
             technology: 'PHP'
         }
     ],

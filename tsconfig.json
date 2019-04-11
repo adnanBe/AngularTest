@@ -16,6 +16,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
-  }
+    ],
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "files": [
+      "src/app/app.module.ts",
+      "node_modules/jqwidgets-scripts/jqwidgets-ts/angular_jqxchart.ts"
+  ]
 }
